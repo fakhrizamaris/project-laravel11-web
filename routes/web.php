@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('checkrole:admin');
     Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('checkrole:user');
 
-    Route::get('/datamahasiswa', [DataMahasiswa::class, 'index'])->name('datamahasiswa');
+    Route::get('/data_pts_aktif', [DataMahasiswa::class, 'index'])->name('data_pts_aktif');
     Route::get('/damatambah', [DataMahasiswa::class, 'tambah']);
     Route::get('/damaedit/{id}', [DataMahasiswa::class,'edit']);
     Route::post('/damahapus/{id}',[DataMahasiswa::class, 'hapus']);

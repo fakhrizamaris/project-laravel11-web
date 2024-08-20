@@ -13,10 +13,40 @@ use Illuminate\Support\Facades\Hash;
 
 class UserControlController extends Controller
 {
+    
     function index()
     {
         $data = User::all();
+        foreach($data as $user){
+            // Set role_level berdasarkan role pengguna
+            if ($user->role == 'superadmin') {
+            $user->role_level = 3;
+            } elseif ($user->role == 'admin') {
+            $user->role_level = 2;
+            } else {
+            $user->role_level = 1;
+            }
+            $user->save();
+        }
+
+        $data = User::orderBy('role_level', 'desc')->get();
         return view('user_control.index', ['uc' => $data]);
+    }
+    function roleLevel(Request $request, $id){
+        $user = User::findOrFail($id);
+
+        // Set role_level berdasarkan role pengguna
+        if ($user->role == 'superadmin') {
+        $user->role_level = 3;
+        } elseif ($user->role == 'admin') {
+        $user->role_level = 2;
+        } else {
+        $user->role_level = 1;
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'User role updated successfully!');
     }
 
     function tambah()

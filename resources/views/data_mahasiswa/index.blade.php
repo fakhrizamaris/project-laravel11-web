@@ -72,7 +72,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pages:</h6>
-                    <a class="collapse-item" href="{{ route('datamahasiswa') }}">Data Mahasiswa</a>
+                    <a class="collapse-item" href="{{ route('data_pts_aktif') }}">Data Mahasiswa</a>
                     {{-- <a class="collapse-item" href="login.html">Login</a>
                     <a class="collapse-item" href="register.html">Register</a>
                     <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
@@ -178,7 +178,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pages:</h6>
-                    <a class="collapse-item" href="{{ route('datamahasiswa') }}">Data Mahasiswa</a>
+                    <a class="collapse-item" href="{{ route('data_pts_aktif') }}">Data Mahasiswa</a>
                     {{-- <a class="collapse-item" href="login.html">Login</a>
                     <a class="collapse-item" href="register.html">Register</a>
                     <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
@@ -219,9 +219,9 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the <a target="_blank"
-                href="https://datatables.net">official DataTables documentation</a>.</p>
+                href="https://datatables.net">official DataTables documentation</a>.</p> --}}
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -259,20 +259,20 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>NIM</th>
-                                <th>Angkatan</th>
+                                <th>No PTS</th>
+                                <th>Nama PTS</th>
+                                <th>Fakultas</th>
+                                <th>Prodi</th>
                                 <th>Jurusan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>NIM</th>
-                                <th>Angkatan</th>
+                                <th>No PTS</th>
+                                <th>Nama PTS</th>
+                                <th>Fakultas</th>
+                                <th>Prodi</th>
                                 <th>Jurusan</th>
                                 <th>Action</th>
                             </tr>
@@ -280,10 +280,10 @@
                         <tbody>
                             @foreach ($data as $item)
                                 <tr>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ $item->nim }}</td>
-                                    <td>{{ $item->angkatan }}</td>
+                                    <td>{{ $item->nopts }}</td>
+                                    <td>{{ $item->namapts }}</td>
+                                    <td>{{ $item->fakultas }}</td>
+                                    <td>{{ $item->prodi }}</td>
                                     <td>{{ $item->jurusan }}</td>
                                     <td><a href="/damaedit/{{ $item->id }}"
                                             class="btn-sm btn-warning text-decoration-none">Edit</a> |

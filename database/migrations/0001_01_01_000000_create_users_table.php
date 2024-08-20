@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role',['superadmin','admin', 'user'])->default('user');
+            $table->integer('role_level')->default(1); // Default to 'user'
             $table->string('verify_key');
             $table->rememberToken();
             $table->timestamps();

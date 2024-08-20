@@ -1,5 +1,5 @@
 @extends('halaman_dashboard.index')
-@if (Auth::user()->role === 'admin')
+@if (Auth::user()->role === 'admin' && 'superadmin')
     @section('navitem')
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
@@ -72,7 +72,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="{{ route('datamahasiswa') }}">Data Mahasiswa</a>
+                    <a class="collapse-item" href="{{ route('data_pts_aktif') }}">Data Mahasiswa</a>
                     {{-- <a class="collapse-item" href="login.html">Login</a>
                     <a class="collapse-item" href="register.html">Register</a>
                     <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
@@ -179,7 +179,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="{{ route('datamahasiswa') }}">Data Mahasiswa</a>
+                    <a class="collapse-item" href="{{ route('data_pts_aktif') }}">Data Mahasiswa</a>
                     {{-- <a class="collapse-item" href="login.html">Login</a>
                     <a class="collapse-item" href="register.html">Register</a>
                     <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
@@ -218,7 +218,7 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Tambah data DAMA</h4>
+                <h4 class="card-title mb-4">Tambah data</h4>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -231,24 +231,24 @@
                 <form class="forms-sample" method="POST" action="/tambahdama" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="nama">Name</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Kevin Example" name="name"
-                            required>
+                        <label for="nopts">No PTS</label>
+                        <input type="number" class="form-control" id="nopts" placeholder="040190 Example"
+                            name="nopts" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" placeholder="kevin@example.com"
-                            name="email" required>
+                        <label for="namapts">Nama PTS</label>
+                        <input type="text" class="form-control" id="namapts"
+                            placeholder="Universitas Islam Sumatera Utara Example" name="namapts" required>
                     </div>
                     <div class="form-group">
-                        <label for="nim">Nim</label>
-                        <input type="number" class="form-control" id="nim" placeholder="22020000" name="nim"
-                            required>
+                        <label for="fakultas">Fakultas</label>
+                        <input type="text" class="form-control" id="fakultas" placeholder="Teknik Example"
+                            name="fakultas" required>
                     </div>
                     <div class="form-group">
-                        <label for="angkatan">Angkatan</label>
-                        <input type="number" class="form-control" id="angkatan" placeholder="21" name="angkatan"
-                            required>
+                        <label for="prodi">Prodi</label>
+                        <input type="text" class="form-control" id="prodi" placeholder="Teknik Informatika"
+                            name="prodi" required>
                     </div>
                     <div class="form-group">
                         <label for="jurusan">Jurusan</label>
@@ -256,7 +256,7 @@
                             name="jurusan" required>
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Tambah</button>
-                    <a href="/datamahasiswa" class="btn btn-light">Kembali</a>
+                    <a href="/data_pts_aktif" class="btn btn-light">Kembali</a>
                 </form>
             </div>
         </div>

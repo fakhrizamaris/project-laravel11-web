@@ -21,7 +21,7 @@ class DataMahasiswa extends Controller
         return view('data_mahasiswa.edit', ['data' => $data]);
     }
     function hapus(Request $request){
-        ModelDataMahasiswa::wheer('id', $request->id)->delete();
+        ModelDataMahasiswa::where('id', $request->id)->delete();
 
         Session::flash('success', 'Berhasil hapus Data');
 
@@ -31,29 +31,29 @@ class DataMahasiswa extends Controller
     function create(Request $request)
     {
     $request->validate([
-    'name' => 'required|min:3',
-    'email' => 'required|email',
-    'nim' => 'required|max:11',
-    'angkatan' => 'required|min:2|max:2',
+    'nopts' => 'required|numeric|min:6',
+    'namapts' => 'required',
+    'fakultas' => 'required',
+    'prodi' => 'required',
     'jurusan' => 'required',
     ], [
-    'name.required' => 'Name Wajib Di isi',
-    'name.min' => 'Bidang name minimal harus 3 karakter.',
-    'email.required' => 'Email Wajib Di isi',
-    'email.email' => 'Format Email Invalid',
-    'nim.required' => 'Nim Wajib Di isi',
-    'nim.max' => 'NIM max 11 Digit',
-    'angkatan.required' => 'Angkatan Wajib Di isi',
-    'angkatan.min' => 'Masukan 2 angka Akhir dari Tahun misal: 2022 (22)',
-    'angkatan.max' => 'Masukan 2 angka Akhir dari Tahun misal: 2022 (22)',
+    'nopts.required' => 'Name Wajib Di isi',
+    'nopts.min' => 'Bidang name minimal harus 6 karakter.',
+    'fakultas.required' => 'Email Wajib Di isi',
+    // 'email.email' => 'Format Email Invalid',
+    'prodi.required' => 'Nim Wajib Di isi',
+    // 'nim.max' => 'NIM max 11 Digit',
     'jurusan.required' => 'Jurusan Wajib Di isi',
+    // 'angkatan.min' => 'Masukan 2 angka Akhir dari Tahun misal: 2022 (22)',
+    // 'angkatan.max' => 'Masukan 2 angka Akhir dari Tahun misal: 2022 (22)',
+    // 'jurusan.required' => 'Jurusan Wajib Di isi',
     ]);
 
     ModelDataMahasiswa::insert([
-    'name' => $request->name,
-    'email' => $request->email,
-    'nim' => $request->nim,
-    'angkatan' => $request->angkatan,
+    'nopts' => $request->nopts,
+    'namapts' => $request->namapts,
+    'fakultas' => $request->fakultas,
+    'prodi' => $request->prodi,
     'jurusan' => $request->jurusan,
     ]);
 
@@ -64,31 +64,30 @@ class DataMahasiswa extends Controller
     function change(Request $request)
     {
     $request->validate([
-    'name' => 'required|min:3',
-    'email' => 'required|email',
-    'nim' => 'required|min:8|max:8',
-    'angkatan' => 'required|min:2|max:2',
+    'nopts' => 'required|numeric|min:6',
+    'namapts' => 'required',
+    'fakultas' => 'required',
+    'prodi' => 'required',
     'jurusan' => 'required',
     ], [
-    'name.required' => 'Name Wajib Di isi',
-    'name.min' => 'Bidang name minimal harus 3 karakter.',
-    'email.required' => 'Email Wajib Di isi',
-    'email.email' => 'Format Email Invalid',
-    'nim.required' => 'Nim Wajib Di isi',
-    'nim.max' => 'NIM max 8 Digit',
-    'nim.min' => 'NIM min 8 Digit',
-    'angkatan.required' => 'Angkatan Wajib Di isi',
-    'angkatan.min' => 'Masukan 2 angka Akhir dari Tahun misal: 2022 (22)',
-    'angkatan.max' => 'Masukan 2 angka Akhir dari Tahun misal: 2022 (22)',
+    'nopts.required' => 'Name Wajib Di isi',
+    'nopts.min' => 'Bidang name minimal harus 6 karakter.',
+    'fakultas.required' => 'Email Wajib Di isi',
+    // 'email.email' => 'Format Email Invalid',
+    'prodi.required' => 'Nim Wajib Di isi',
+    // 'nim.max' => 'NIM max 11 Digit',
     'jurusan.required' => 'Jurusan Wajib Di isi',
+    // 'angkatan.min' => 'Masukan 2 angka Akhir dari Tahun misal: 2022 (22)',
+    // 'angkatan.max' => 'Masukan 2 angka Akhir dari Tahun misal: 2022 (22)',
+    // 'jurusan.required' => 'Jurusan Wajib Di isi',
     ]);
 
     $datamahasiswa = ModelDataMahasiswa::find($request->id);
 
-    $datamahasiswa->name = $request->name;
-    $datamahasiswa->email = $request->email;
-    $datamahasiswa->nim = $request->nim;
-    $datamahasiswa->angkatan = $request->angkatan;
+    $datamahasiswa->nopts = $request->nopts;
+    $datamahasiswa->namapts = $request->namapts;
+    $datamahasiswa->fakultas = $request->fakultas;
+    $datamahasiswa->prodi = $request->prodi;
     $datamahasiswa->jurusan = $request->jurusan;
     $datamahasiswa->save();
 

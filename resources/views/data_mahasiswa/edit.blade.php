@@ -72,7 +72,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="{{ route('datamahasiswa') }}">Data Mahasiswa</a>
+                    <a class="collapse-item" href="{{ route('data_pts_aktif') }}">Data Mahasiswa</a>
                     <a class="collapse-item" href="login.html">Login</a>
                     <a class="collapse-item" href="register.html">Register</a>
                     <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
@@ -179,7 +179,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="{{ route('datamahasiswa') }}">Data Mahasiswa</a>
+                    <a class="collapse-item" href="{{ route('data_pts_aktif') }}">Data Mahasiswa</a>
                     <a class="collapse-item" href="login.html">Login</a>
                     <a class="collapse-item" href="register.html">Register</a>
                     <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
@@ -232,24 +232,24 @@
                         @csrf
                         <input type="hidden" name="id" value="{{ $data->id }}">
                         <div class="form-group">
-                            <label for="nama">Name</label>
-                            <input type="text" class="form-control" id="nama" name="name"
-                                value="{{ $data->name }}" required>
+                            <label for="nopts">No PTS</label>
+                            <input type="number" class="form-control" id="nopts" name="name"
+                                value="{{ $data->nopts }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail3">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail3" name="email"
-                                value="{{ $data->email }}" required>
+                            <label for="exampleInputEmail3">Nama PTS</label>
+                            <input type="text" class="form-control" id="exampleInputEmail3" name="namapts"
+                                value="{{ $data->namapts }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="nim">Nim</label>
-                            <input type="number" class="form-control" id="nim" name="nim"
-                                value="{{ $data->nim }}" required>
+                            <label for="fakultas">Fakultas</label>
+                            <input type="text" class="form-control" id="fakultas" name="fakultas"
+                                value="{{ $data->fakultas }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="angkatan">Angkatan</label>
-                            <input type="number" class="form-control" id="angkatan" name="angkatan"
-                                value="{{ $data->angkatan }}" required>
+                            <label for="prodi">Prodi</label>
+                            <input type="text" class="form-control" id="prodi" name="prodi"
+                                value="{{ $data->prodi }}" required>
                         </div>
                         <div class="form-group">
                             <label for="jurusan">Jurusan</label>
@@ -257,7 +257,7 @@
                                 value="{{ $data->jurusan }}" required>
                         </div>
                         <button type="submit" class="btn btn-primary me-2">Edit</button>
-                        <a href="/datamahasiswa" class="btn btn-light">Kembali</a>
+                        <a href="/data_pts_aktif" class="btn btn-light">Kembali</a>
                     </form>
             </div>
         </div>

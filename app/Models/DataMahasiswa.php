@@ -8,12 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class DataMahasiswa extends Model
 {
     use HasFactory;
-    public $table = 'datamahasiswa';
+    public $table = 'data_pts_aktif';
     public $fillable = [
-        'name',
-        'name',
-        'nim',
-        'angkatan',
+        // 'name',
+        // 'nim',
+        // 'angkatan',
+        // 'jurusan',
+        'nopts',
+        'namapts',
+        'fakultas',
+        'prodi',
         'jurusan',
     ];
 }

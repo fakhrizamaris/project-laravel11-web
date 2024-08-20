@@ -10,6 +10,7 @@ class UproleController extends Controller
     function index($id)
     {
         $data = User::find($id);
+        
         $data->role = 'admin';
         $data->save();
         cache()->forget('user_'.$id);

@@ -71,7 +71,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Pages:</h6>
-                <a class="collapse-item" href="{{ route('datamahasiswa') }}">Data Mahasiswa</a>
+                <a class="collapse-item" href="{{ route('data_pts_aktif') }}">Data PTS Aktif</a>
                 {{-- <a class="collapse-item" href="login.html">Login</a>
                 <a class="collapse-item" href="register.html">Register</a>
                 <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
@@ -112,8 +112,8 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
         </div>
 
         <!-- Content Row -->
@@ -125,13 +125,13 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-primary mb-1">
                                     {{ Auth::user()->email }}</div>
-                                <div class="h5 mb-0 font-weight-bold " style="color: rgb(255, 140, 0);">
+                                <div class="h5 mb-0 font-weight-bold text-capitalize " style="color: rgb(255, 140, 0);">
                                     {{ Auth::user()->role }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                {{-- <i class="fas fa-calendar fa-2x text-gray-300"></i> --}}
                             </div>
                         </div>
                     </div>
@@ -144,11 +144,11 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Earnings (Annual)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                    Status</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Controller</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                {{-- <i class="fas fa-dollar-sign fa-2x text-gray-300"></i> --}}
                             </div>
                         </div>
                     </div>
